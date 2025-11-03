@@ -55,7 +55,7 @@ export const registry: Registry = [
     name: "Magnetic Button",
     category: "buttons",
     description: "Button subtly follows the cursor for a magnetic feel.",
-    modulePath: "@/components/motioncraft/buttons/magnetic-button",
+    modulePath: "@/components/qixel/buttons/magnetic-button",
     exportName: "MagneticButton",
     sourceCode: magneticButtonCode,
     install: "npm i framer-motion",
@@ -85,7 +85,7 @@ export const registry: Registry = [
 export async function loadComponentBySlug(slug: string): Promise<ComponentType<any> | null> {
   switch (slug) {
     case "magnetic-button": {
-      const mod = await import("@/components/motioncraft/buttons/magnetic-button");
+      const mod = await import("@/components/qixel/buttons/magnetic-button");
       return mod.MagneticButton as ComponentType<any>;
     }
     default:
