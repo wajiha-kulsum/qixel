@@ -29,6 +29,15 @@ export default function ComponentsPage() {
       <div className="max-w-5xl mx-auto">
         <h1 className="text-3xl font-bold">Animated Components</h1>
         <p className="text-gray-600 mt-2">Explore, preview, and copy-paste.</p>
+        
+        <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <p className="text-sm text-blue-900">
+            <span className="font-semibold">Quick Start:</span> Install components with{" "}
+            <code className="px-2 py-0.5 bg-blue-100 rounded text-blue-800 font-mono text-xs">
+              npx @qixel/cli add [component-name]
+            </code>
+          </p>
+        </div>
 
         <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="inline-flex flex-wrap gap-2">

@@ -22,7 +22,7 @@ export type RegistryItem = {
 };
 
 export function loadRegistry(): RegistryItem[] {
-  const registryPath = path.resolve(__dirname, "../../../components/registry.json");
+  const registryPath = path.resolve(__dirname, "../../components/registry.json");
   const raw = fs.readFileSync(registryPath, "utf8");
   return JSON.parse(raw);
 }

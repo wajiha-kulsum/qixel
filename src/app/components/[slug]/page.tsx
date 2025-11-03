@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { registry, loadComponentBySlug } from "@/lib/registry";
 import { ComponentPreview } from "@/components/site/component-preview";
 import { CodeBlock } from "@/components/site/code-block";
+import { CliCommand } from "@/components/site/cli-command";
+import { Tabs } from "@/components/site/tabs";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -23,23 +25,46 @@ export default async function ComponentDetailPage(props: PageProps) {
         ) : null}
 
         <div className="mt-8">
-          <ComponentPreview title="Live Preview" description="Interact to feel the motion.">
-            {Component ? <Component>Hover Me!</Component> : null}
-          </ComponentPreview>
+          <Tabs
+            tabs={[
+              {
+                id: "preview",
+                label: "Preview",
+                content: (
+                  <ComponentPreview title="Live Preview" description="Interact to feel the motion.">
+                    {Component ? <Component>Hover Me!</Component> : null}
+                  </ComponentPreview>
+                ),
+              },
+              {
+                id: "code",
+                label: "Code",
+                content: (
+                  <div>
+                    <CodeBlock code={item.sourceCode} label="tsx" />
+                  </div>
+                ),
+              },
+            ]}
+          />
         </div>
 
-        {item.install ? (
-          <div className="mt-8">
-            <h2 className="text-xl font-semibold mb-2">Installation</h2>
-            <div className="rounded-lg border p-4 bg-gray-50">
-              <p className="text-sm text-gray-800">{item.install}</p>
+        <div className="mt-8">
+          <h2 className="text-xl font-semibold mb-3">Installation</h2>
+          
+          <div className="mb-4">
+            <h3 className="text-sm font-medium text-gray-700 mb-2">CLI (Recommended)</h3>
+            <CliCommand command={`npx @qixel/cli add ${item.slug}`} />
+          </div>
+
+          <div className="mb-4">
+            <h3 className="text-sm font-medium text-gray-700 mb-2">Manual Installation</h3>
+            <div className="space-y-2">
+              <p className="text-sm text-gray-600">1. Install dependencies:</p>
+              <CliCommand command={item.install || "npm i framer-motion"} />
+              <p className="text-sm text-gray-600 mt-3">2. Copy the source code from the Code tab above</p>
             </div>
           </div>
-        ) : null}
-
-        <div className="mt-8">
-          <h2 className="text-xl font-semibold mb-3">Source Code</h2>
-          <CodeBlock code={item.sourceCode} label="tsx" />
         </div>
 
         {item.props?.length ? (

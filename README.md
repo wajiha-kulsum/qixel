@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Qixel
 
-## Getting Started
+> Beautiful animated React components that you can copy and paste into your apps.
 
-First, run the development server:
+## 🎯 What is Qixel?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Qixel is a collection of animated UI components built with React, TypeScript, Tailwind CSS, and Framer Motion. Like shadcn/ui, components are **copied directly into your project** - you own the code and can customize it however you want.
+
+## 📦 Project Structure
+
+```
+qixel/
+├── src/                          # Next.js Website
+│   ├── app/                      # App router pages
+│   ├── components/
+│   │   ├── motioncraft/          # Animated components
+│   │   ├── site/                 # Website UI components
+│   │   └── ui/                   # shadcn/ui components
+│   └── lib/                      # Utils and registry
+│
+├── packages/
+│   ├── cli/                      # CLI tool (@qixel/cli)
+│   └── components/               # Component source package
+│       ├── src/                  # Component source files
+│       └── registry.json         # Component metadata
+│
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Quick Start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### For Users (Installing Components)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Option 1: Use the CLI** (Recommended)
 
-## Learn More
+```bash
+# Initialize your project
+npx @qixel/cli init
 
-To learn more about Next.js, take a look at the following resources:
+# List available components
+npx @qixel/cli list
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Add a component
+npx @qixel/cli add magnetic-button
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Option 2: Copy & Paste**
 
-## Deploy on Vercel
+Visit [http://localhost:3000/components](http://localhost:3000/components), click a component, and copy the code.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### For Contributors (Development)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Install dependencies
+npm install
+
+# Start the website
+npm run dev
+
+# Build the CLI
+cd packages/cli
+npm run build
+```
+
+## 📚 Available Components
+
+### Buttons
+- **Magnetic Button** - Button that follows your cursor with physics
+
+*More components coming soon!*
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 16
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **UI Components**: shadcn/ui
+- **Monorepo**: npm workspaces
+
+## 📖 Documentation
+
+### Website Routes
+
+- `/` - Homepage
+- `/components` - Browse all components with search & filters
+- `/components/[slug]` - Individual component detail page
+
+### CLI Commands
+
+```bash
+# Initialize configuration
+qixel init
+
+# List all components
+qixel list
+
+# Add a component to your project
+qixel add <component-slug>
+```
+
+## 🎨 Component Structure
+
+Each component includes:
+- ✅ Live interactive preview
+- ✅ Full source code
+- ✅ TypeScript types
+- ✅ Props documentation
+- ✅ Usage examples
+- ✅ Installation instructions
+- ✅ Customization options
+
+## 🤝 Contributing
+
+We welcome contributions! To add a new component:
+
+1. Create component in `packages/components/src/<category>/<name>.tsx`
+2. Add metadata to `packages/components/registry.json`
+3. Update the website registry in `src/lib/registry.ts`
+4. Test with `npm run dev`
+
+## 📝 License
+
+MIT © Qixel
+
+## 🔗 Links
+
+- Website: [http://localhost:3000](http://localhost:3000)
+- GitHub: [Your Repo URL]
+- Documentation: [Your Docs URL]
+
+---
+
+Built with ❤️ by the Qixel team
