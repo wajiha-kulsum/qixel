@@ -22,7 +22,8 @@ export type RegistryItem = {
 };
 
 export function loadRegistry(): RegistryItem[] {
-  const registryPath = path.resolve(__dirname, "../../components/registry.json");
+  // When published to npm, registry.json will be at ../components/registry.json from dist
+  const registryPath = path.resolve(__dirname, "../components/registry.json");
   const raw = fs.readFileSync(registryPath, "utf8");
   return JSON.parse(raw);
 }

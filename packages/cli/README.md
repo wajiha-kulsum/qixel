@@ -1,11 +1,20 @@
-# @qixel/cli
+# Qixel CLI
 
 CLI tool for adding animated React components to your project.
 
 ## Installation
 
+### Global Installation (Recommended)
+
 ```bash
-npm install -g @qixel/cli
+npm install -g @wajiha12/qixel-cli
+```
+
+### Or use npx (no installation required)
+
+```bash
+npx @wajiha12/qixel-cli init
+npx @wajiha12/qixel-cli add magnetic-button
 ```
 
 ## Usage
@@ -58,4 +67,19 @@ Like shadcn/ui, Qixel components are:
 - ✅ Fully customizable
 - ✅ No package dependency
 - ✅ TypeScript ready
+
+---
+
+## For Maintainers: Deploying to npm
+
+To publish updates to npm, use the deployment script:
+
+```bash
+cd packages/cli
+.\deploy.ps1      # Windows PowerShell
+# or
+./deploy.sh       # Mac/Linux
+```
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
 

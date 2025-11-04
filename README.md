@@ -1,134 +1,195 @@
 # Qixel
 
-> Beautiful animated React components that you can copy and paste into your apps.
+[![npm version](https://badge.fury.io/js/@wajiha12%2Fqixel-cli.svg)](https://www.npmjs.com/package/@wajiha12/qixel-cli)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🎯 What is Qixel?
+> Add animated React components to your project with one command.
 
-Qixel is a collection of animated UI components built with React, TypeScript, Tailwind CSS, and Framer Motion. Like shadcn/ui, components are **copied directly into your project** - you own the code and can customize it however you want.
-
-## 📦 Project Structure
-
-```
-qixel/
-├── src/                          # Next.js Website
-│   ├── app/                      # App router pages
-│   ├── components/
-│   │   ├── motioncraft/          # Animated components
-│   │   ├── site/                 # Website UI components
-│   │   └── ui/                   # shadcn/ui components
-│   └── lib/                      # Utils and registry
-│
-├── packages/
-│   ├── cli/                      # CLI tool (@qixel/cli)
-│   └── components/               # Component source package
-│       ├── src/                  # Component source files
-│       └── registry.json         # Component metadata
-│
-└── README.md
-```
-
-## 🚀 Quick Start
-
-### For Users (Installing Components)
-
-**Option 1: Use the CLI** (Recommended)
-
-```bash
-# Initialize your project
-npx @qixel/cli init
-
-# List available components
-npx @qixel/cli list
-
-# Add a component
-npx @qixel/cli add magnetic-button
-```
-
-**Option 2: Copy & Paste**
-
-Visit [http://localhost:3000/components](http://localhost:3000/components), click a component, and copy the code.
-
-### For Contributors (Development)
-
-```bash
-# Install dependencies
-npm install
-
-# Start the website
-npm run dev
-
-# Build the CLI
-cd packages/cli
-npm run build
-```
-
-## 📚 Available Components
-
-### Buttons
-- **Magnetic Button** - Button that follows your cursor with physics
-
-*More components coming soon!*
-
-## 🛠️ Tech Stack
-
-- **Framework**: Next.js 16
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **UI Components**: shadcn/ui
-- **Monorepo**: npm workspaces
-
-## 📖 Documentation
-
-### Website Routes
-
-- `/` - Homepage
-- `/components` - Browse all components with search & filters
-- `/components/[slug]` - Individual component detail page
-
-### CLI Commands
-
-```bash
-# Initialize configuration
-qixel init
-
-# List all components
-qixel list
-
-# Add a component to your project
-qixel add <component-slug>
-```
-
-## 🎨 Component Structure
-
-Each component includes:
-- ✅ Live interactive preview
-- ✅ Full source code
-- ✅ TypeScript types
-- ✅ Props documentation
-- ✅ Usage examples
-- ✅ Installation instructions
-- ✅ Customization options
-
-## 🤝 Contributing
-
-We welcome contributions! To add a new component:
-
-1. Create component in `packages/components/src/<category>/<name>.tsx`
-2. Add metadata to `packages/components/registry.json`
-3. Update the website registry in `src/lib/registry.ts`
-4. Test with `npm run dev`
-
-## 📝 License
-
-MIT © Qixel
-
-## 🔗 Links
-
-- Website: [http://localhost:3000](http://localhost:3000)
-- GitHub: [Your Repo URL]
-- Documentation: [Your Docs URL]
+A shadcn-style CLI tool that copies animated components directly into your React project. You own the code, you customize it.
 
 ---
 
-Built with ❤️ by the Qixel team
+## 🚀 Quick Start
+
+```bash
+# Install globally
+npm install -g @wajiha12/qixel-cli
+
+# Or use with npx (no installation)
+npx @wajiha12/qixel-cli init
+npx @wajiha12/qixel-cli add magnetic-button
+```
+
+---
+
+## 📦 Installation
+
+### Option 1: Global Installation (Recommended)
+
+```bash
+npm install -g @wajiha12/qixel-cli
+```
+
+Then use anywhere:
+
+```bash
+qixel init
+qixel list
+qixel add magnetic-button
+```
+
+### Option 2: Use with npx (No Installation)
+
+```bash
+npx @wajiha12/qixel-cli init
+npx @wajiha12/qixel-cli list
+npx @wajiha12/qixel-cli add magnetic-button
+```
+
+---
+
+## 🎯 Usage
+
+### 1. Initialize Your Project
+
+```bash
+qixel init
+```
+
+This creates a `qixel.json` config file in your project.
+
+### 2. List Available Components
+
+```bash
+qixel list
+```
+
+See all available animated components.
+
+### 3. Add Components
+
+```bash
+qixel add magnetic-button
+```
+
+This will:
+- ✅ Copy the component source to your project
+- ✅ Automatically install required dependencies (framer-motion, etc.)
+- ✅ Place it in your configured components directory
+
+### 4. Use in Your App
+
+```tsx
+import { MagneticButton } from '@/components/qixel/buttons/magnetic-button'
+
+function App() {
+  return <MagneticButton>Click me!</MagneticButton>
+}
+```
+
+---
+
+## 🎨 Available Components
+
+### Buttons
+- **magnetic-button** - Button that subtly follows the cursor for a magnetic feel
+
+*More components coming soon!*
+
+---
+
+## 💡 Philosophy (Shadcn-style)
+
+Like shadcn/ui, Qixel components are:
+
+- ✅ **Copy-pasted directly into your project** (you own the code)
+- ✅ **Fully customizable** (modify as you wish)
+- ✅ **No package dependency** (not a component library)
+- ✅ **TypeScript ready** (fully typed)
+
+---
+
+## 🛠️ Commands
+
+| Command | Description |
+|---------|-------------|
+| `qixel init` | Initialize your project for Qixel components |
+| `qixel list` | List all available components |
+| `qixel add <component>` | Add a component to your project |
+| `qixel --help` | Show help |
+| `qixel --version` | Show version |
+
+---
+
+## 📁 Project Structure
+
+```
+qixel/
+├── packages/
+│   ├── cli/              # CLI tool (published to npm)
+│   └── components/       # Component registry
+└── src/
+    ├── app/              # Next.js website
+    └── components/       # Website components
+```
+
+---
+
+## 🌐 Links
+
+- **npm Package:** https://www.npmjs.com/package/@wajiha12/qixel-cli
+- **GitHub Repository:** https://github.com/wajiha-kulsum/qixel
+- **Issues:** https://github.com/wajiha-kulsum/qixel/issues
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+
+- 🐛 Report bugs
+- 💡 Suggest new components
+- 🔧 Submit pull requests
+- 📖 Improve documentation
+
+---
+
+## 📄 License
+
+MIT © [Wajiha Kulsum](https://github.com/wajiha-kulsum)
+
+---
+
+## 🙏 Credits
+
+Built with:
+- [Commander.js](https://github.com/tj/commander.js) - CLI framework
+- [Chalk](https://github.com/chalk/chalk) - Terminal styling
+- [Ora](https://github.com/sindresorhus/ora) - Elegant terminal spinners
+- [Prompts](https://github.com/terkelg/prompts) - Beautiful CLI prompts
+
+Inspired by [shadcn/ui](https://ui.shadcn.com/)
+
+---
+
+## 📊 Stats
+
+- ⚡ Package size: 4.3 kB
+- 📦 Dependencies: 5
+- 🎯 Components: Growing!
+- 🔄 Latest version: 0.1.1
+
+---
+
+**Made with ❤️ for the React community**
+
+---
+
+## ⚠️ Note
+
+If you previously installed the unscoped `qixel` package, please switch to the official scoped package:
+
+```bash
+npm uninstall -g qixel
+npm install -g @wajiha12/qixel-cli
+```

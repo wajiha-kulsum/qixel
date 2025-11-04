@@ -1,14 +1,38 @@
 {
-  "name": "@qixel/cli",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@wajiha12/qixel-cli",
+  "version": "0.1.2",
+  "description": "CLI tool for adding animated React components to your project",
   "type": "module",
   "bin": {
     "qixel": "dist/index.js"
   },
+  "files": [
+    "dist",
+    "components"
+  ],
+  "keywords": [
+    "cli",
+    "react",
+    "components",
+    "animation",
+    "framer-motion",
+    "ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wajiha-kulsum/qixel.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/wajiha-kulsum/qixel/issues"
+  },
+  "homepage": "https://github.com/wajiha-kulsum/qixel#readme",
+  "license": "MIT",
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts",
-    "dev": "tsup src/index.ts --format esm --watch"
+    "build": "tsup src/index.ts --format esm --dts && npm run copy-registry",
+    "copy-registry": "node -e \"require('fs').cpSync('../components/registry.json', 'components/registry.json', {recursive: true, force: true}); require('fs').mkdirSync('components', {recursive: true})\"",
+    "dev": "tsup src/index.ts --format esm --watch",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "chalk": "^5.3.0",
