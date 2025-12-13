@@ -31,6 +31,9 @@ export type RegistryItem = {
   // Props and example snippets
   props?: ComponentProp[];
   examples?: Example[];
+  // Preview configuration
+  previewProps?: Record<string, unknown>;
+  previewChildren?: string;
 };
 
 export type Registry = RegistryItem[];

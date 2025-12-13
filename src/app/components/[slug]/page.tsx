@@ -32,7 +32,13 @@ export default async function ComponentDetailPage(props: PageProps) {
                 label: "Preview",
                 content: (
                   <ComponentPreview title="Live Preview" description="Interact to feel the motion.">
-                    {Component ? <Component>Hover Me!</Component> : null}
+                    {Component ? (
+                      item.previewProps ? (
+                        <Component {...item.previewProps} />
+                      ) : (
+                        <Component>{item.previewChildren ?? "Hover Me!"}</Component>
+                      )
+                    ) : null}
                   </ComponentPreview>
                 ),
               },
