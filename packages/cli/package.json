@@ -1,6 +1,6 @@
 {
   "name": "@wajiha12/qixel-cli",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "CLI tool for adding animated React components to your project",
   "type": "module",
   "bin": {
