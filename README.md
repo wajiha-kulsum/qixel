@@ -94,7 +94,7 @@ function App() {
 ### Buttons
 - **magnetic-button** - Button that subtly follows the cursor for a magnetic feel
 
-*More components coming soon!*
+*More components coming soon! ✨*
 
 ---
 
