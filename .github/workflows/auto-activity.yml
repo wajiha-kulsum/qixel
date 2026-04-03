@@ -1,0 +1,32 @@
+name: Keep Activity Alive
+
+on:
+  schedule:
+    # Runs every day at 12:00 UTC (noon)
+    - cron: '0 12 * * *'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  auto_commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Make a minor change
+        run: |
+          # Appends the current date to a hidden log file to ensure there's a difference to commit
+          echo "Last run: $(date)" > .github/.activity-log
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .github/.activity-log
+          # Only commit if there are changes
+          git commit -m "chore: automated daily activity update" || echo "No changes to commit"
+          git push
