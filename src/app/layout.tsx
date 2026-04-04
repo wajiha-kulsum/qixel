@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Qixel",
-  description: "Copy-paste animated React components",
+  title: "Qixel - Animated React Components",
+  description: "Copy-paste animated React components. Beautifully designed, accessible, and customizable.",
+  keywords: ["react", "ui", "components", "animation", "tailwind", "framer-motion"],
 };
 
 export default function RootLayout({
