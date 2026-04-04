@@ -193,3 +193,5 @@ If you previously installed the unscoped `qixel` package, please switch to the o
 npm uninstall -g qixel
 npm install -g @wajiha12/qixel-cli
 ```
+
+<!-- Minor update for activity -->
