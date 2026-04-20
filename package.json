@@ -2,6 +2,10 @@
   "name": "qixel",
   "version": "0.1.0",
   "private": true,
+  "author": "Wajiha Kulsum",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "workspaces": [
     "packages/*"
   ],
