@@ -1,3 +1,7 @@
+/**
+ * Represents a single component's property configuration.
+ * Useful for documentation and type-checking within the registry.
+ */
 export type ComponentProp = {
   name: string;
   type: string;
@@ -6,11 +10,18 @@ export type ComponentProp = {
   description?: string;
 };
 
+/**
+ * An example snippet showcasing component usage.
+ */
 export type Example = {
   title: string;
   code: string;
 };
 
+/**
+ * Definition of a reusable component within the Qixel registry system.
+ * Contains metadata, source code, and integration details.
+ */
 export type RegistryItem = {
   slug: string;
   name: string;
